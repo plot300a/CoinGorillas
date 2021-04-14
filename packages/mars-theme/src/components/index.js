@@ -68,7 +68,7 @@ export default connect(Theme);
 const globalStyles = css`
   body {
     margin: 0;
-    background-color: #00c1ff;
+    background-color: #000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
