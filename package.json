@@ -1,0 +1,26 @@
+{
+  "name": "crank-sxm360-pt3",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "scripts": {
+    "dev": "frontity dev",
+    "build": "frontity build"
+  },
+  "prettier": {},
+  "dependencies": {
+    "@frontity/core": "^1.11.0",
+    "@frontity/head-tags": "1.1.1",
+    "@frontity/html2react": "^1.6.1",
+    "@frontity/mars-theme": "./packages/mars-theme",
+    "@frontity/tiny-router": "^1.4.0",
+    "@frontity/wp-source": "^1.11.2",
+    "@frontity/yoast": "2.1.1",
+    "@material-ui/core": "4.11.3",
+    "@material-ui/icons": "4.11.2",
+    "frontity": "^1.14.2",
+    "prop-types": "15.7.2",
+    "react-bootstrap": "1.5.2"
+  }
+}
