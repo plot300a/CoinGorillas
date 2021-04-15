@@ -2,9 +2,9 @@ const settings = {
   name: "codesandbox-frontity",
   state: {
     frontity: {
-      url: "https://sxm360.thedailygrindsxm.com",
-      title: "SXM360",
-      description: "St. Maarten Highlights"
+      url: "https://coinwatch.thedailygrindsxm.com",
+      title: "Coin Gorillas",
+      description: "Crypto Currenty Highlights"
     }
   },
   packages: [
@@ -33,7 +33,7 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          api: "https://sxm360.thedailygrindsxm.com/wp-json/",
+          api: "https://coinwatch.thedailygrindsxm.com/wp-json/",
           categoryBase: "c",
           tagBase: "t"
         }
