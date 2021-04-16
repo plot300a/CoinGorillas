@@ -202,8 +202,8 @@ const globalStyles = css`
     background-color: #191a19; /*251f1f;*/
     height: 90vh;
     padding-top: 0px;
-    padding-left: 0;
-    padding-right: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
     position: sticky;
     top: 7vh;
     left: 0;
@@ -251,7 +251,6 @@ const globalStyles = css`
     background-color: #191a19;
     display: flex;
     padding: 0px;
-    padding-left: 5px;
 
     align-items: center;
     color: #88b888;
@@ -312,7 +311,7 @@ const globalStyles = css`
   @media screen and (max-width: 1224px) {
     .sidebar {
       width: 240px;
-      margin-left: 7px;
+     
       /*border: 1px solid lime; */
 
       li {
@@ -342,7 +341,7 @@ const globalStyles = css`
   /* 520 */
   @media screen and (max-width: 520px) {
     .sidebar {
-      transform: translateX(-110%);
+      /*transform: translateX(-110%);*/
       display: none;
       position: fixed;
       z-index: 999;
@@ -366,12 +365,20 @@ const globalStyles = css`
       }
 
       .header__input {
-        display: flex;
-        align-items: center;
-        width: 50%;
-        border: 0px solid #191a19;
-      }
-    }
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 0px solid #191a19;
+
+    input {
+    flex: 2;
+    border: none;
+    padding-left: 5px;
+    border: 1px solid yellow;
+  }
+  }
+
+
   }
 
   /* xxxxxxxxxxxxxxxxxxxxxx */
