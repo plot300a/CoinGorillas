@@ -151,15 +151,18 @@ const globalStyles = css`
     overflow: hidden;
     border: 0px solid purple;
     max-height: 170px;
+    position: relative;
   }
 
   .ytvideo_thumbnailwrapper img {
-    position: relative;
     margin-top: -70px;
   }
 
   .videocard__details {
     font-size: 13px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid lime;
   }
 
   .borderbox {

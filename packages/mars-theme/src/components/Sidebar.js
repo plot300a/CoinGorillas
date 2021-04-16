@@ -50,8 +50,6 @@ const Sidebar = ({ sidebar }) => {
       <div className="SidebarSection">
         <SidebarRow Icon={InfoIcon} Title="Crypto 101" size={23} />{" "}
         <SidebarRow Icon={InsertChartIcon} Title="Exchanges" />
-        <SidebarRow Icon={BusinessIcon} Title="Timeshare" />
-        <SidebarRow Icon={HotelIcon} Title="AirBnB" />
       </div>
     </div>
   );

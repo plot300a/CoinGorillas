@@ -67,7 +67,7 @@ const VideolistWrapper = styled.section`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  align-content: space-between;
+  align-items: space-between;
 
   a: {
     color: #a7f7a7;
@@ -76,17 +76,18 @@ const VideolistWrapper = styled.section`
 
 const Singleitembox = styled.section`
   width: 255px;
-  min-height: 240px;
-  max-height: 240px;
+  min-height: 260px;
+  max-height: 260px;
   padding: 1px 0px 0px 0px;
   /* display: flex;
   flex-direction: column; */
   margin-right: 7px;
-  margin-bottom: 7px;
-  border-width: 0px;
+  margin-bottom: 14px;
+  border-width: 1px;
   border-color: grey;
   border-style: solid;
   align-content: center;
+  }
 `;
 
 const Cleardiv = styled.section`
