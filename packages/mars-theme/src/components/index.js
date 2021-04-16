@@ -259,6 +259,12 @@ const globalStyles = css`
     border-bottom: 1px solid #262826;
     margin: 0px;
     height: 6vh;
+
+    a:hover{
+      background-color: #88b888;
+      color: #000;
+    }
+
     .sidebarRow__icon {
       width: auto;
       padding: 0px;
@@ -301,7 +307,6 @@ const globalStyles = css`
   /* 1224 */
   @media screen and (max-width: 1366px) {
     width: 240px;
-    background-color: black;
   }
 
   /* 1224 */
@@ -310,7 +315,7 @@ const globalStyles = css`
       width: 240px;
       margin-left: 7px;
       /*border: 1px solid lime; */
-      background-color: #00e8ff;
+
       li {
         justify-content: center;
       }
