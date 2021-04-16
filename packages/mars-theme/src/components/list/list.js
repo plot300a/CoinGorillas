@@ -68,6 +68,10 @@ const VideolistWrapper = styled.section`
   align-items: center;
   flex-wrap: wrap;
   align-content: space-between;
+
+  a: {
+    color: #a7f7a7;
+  }
 `;
 
 const Singleitembox = styled.section`

@@ -44,7 +44,7 @@ const NavContainer = styled.nav`
 
 const NavItem = styled.div`
   border-radius: 33px;
-  background: #3fa446; /* #a99b3c; /*#73ad21; /*#327aab;*/
+  background: #5d625d; /* #a99b3c; /*#73ad21; /*#327aab;*/
   margin-left: 7px;
   width: auto;
   height: auto;

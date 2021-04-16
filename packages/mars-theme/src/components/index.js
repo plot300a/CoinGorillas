@@ -68,7 +68,8 @@ export default connect(Theme);
 const globalStyles = css`
   body {
     margin: 0;
-    background-color: #000;
+    background-color: #191a19;
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -86,7 +87,7 @@ const globalStyles = css`
     position: fixed;
     top: 0;
     z-index: 100;
-    background-color: #00ffef;
+    background-color: #251f1f;
     border: 1px solid pink;
     clear: both;
 
@@ -190,7 +191,7 @@ const globalStyles = css`
   .sidebar {
     display: flex;
     flex-direction: column;
-    background-color: #00e8ff;
+    background-color: #251f1f;
     /*width: 230px; */
     height: 90vh;
     padding-top: 0px;
@@ -203,9 +204,9 @@ const globalStyles = css`
     border: 0px solid yellow;
 
     a {
-      color: $text-color;
+      color: #88b888;
       &:hover {
-        color: blue;
+        color: #88b888;
         text-decoration: none;
       }
     }
@@ -240,13 +241,13 @@ const globalStyles = css`
   }
 
   .sidebarRow {
-    background-color: #00aeff;
+    background-color: #;
     display: flex;
     padding: 0px;
     padding-left: 5px;
 
     align-items: center;
-    color: #6f1884;
+    color: #a1fb6a;
     border-bottom: 1px solid #2bbfff;
     margin: 0px;
     height: 6vh;
