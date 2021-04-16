@@ -106,7 +106,7 @@ const globalStyles = css`
   .header__input {
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 30%;
     border: 0px solid #191a19;
   }
 
@@ -360,8 +360,16 @@ const globalStyles = css`
       .header__menuicon {
         display: block;
       }
+
       .header__logo {
         display: none;
+      }
+
+      .header__input {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        border: 0px solid #191a19;
       }
     }
   }
