@@ -343,7 +343,7 @@ const globalStyles = css`
   @media screen and (max-width: 520px) {
     .sidebar {
       transform: translateX(-110%);
-
+      display: none;
       position: fixed;
       z-index: 999;
     }
