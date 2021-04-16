@@ -38,7 +38,7 @@ const NavContainer = styled.nav`
 
   border-bottom: 1px solid #191a19;
   @media screen and (max-width: 560px) {
-    display: none;
+   /* display: none; *
   }
 `;
 

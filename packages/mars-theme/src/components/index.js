@@ -202,7 +202,6 @@ const globalStyles = css`
     background-color: #191a19; /*251f1f;*/
     height: 90vh;
     padding-top: 0px;
-    transition: transform 0.2s ease-in;
     padding-left: 0;
     padding-right: 7px;
     position: sticky;
@@ -260,7 +259,7 @@ const globalStyles = css`
     margin: 0px;
     height: 6vh;
 
-    a:hover{
+    a:hover {
       background-color: #88b888;
       color: #000;
     }
@@ -343,7 +342,7 @@ const globalStyles = css`
   /* 520 */
   @media screen and (max-width: 520px) {
     .sidebar {
-      transform: translateX(-100%);
+      transform: translateX(-110%);
 
       position: fixed;
       z-index: 999;
