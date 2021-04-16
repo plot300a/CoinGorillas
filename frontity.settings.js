@@ -13,14 +13,9 @@ const settings = {
       state: {
         theme: {
           menu: [
-            ["Hotels", "/t/hotels-resorts/"],
-            ["Weddings", "/t/island-weddings/"],
-            ["Shopping", "/t/shopping-in-sxm/"],
-            ["Activities", "/t/vacation-activities/"],
-            ["Villas & Condos", "/t/villas-condos/"],
-            ["Music", "/c/sxm-music/"],
-            ["Nearshore", "/c/nearshore-bpo/"],
-            ["Wealth", "/c/wealth/"]
+            ["Crypto TV", "/c/crypto-coins-tv/"],
+            ["News", "/c/crypto-currency-news/"],
+            ["Dogecoin", "/c/crypto-coins-tv/dogecoin-mans-best-friend/"]
           ],
           featured: {
             showOnList: true,
