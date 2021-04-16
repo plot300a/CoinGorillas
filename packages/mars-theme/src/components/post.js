@@ -30,11 +30,10 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-      {/*
       <div>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
       </div>
-      */}
+
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
         <FeaturedMedia id={post.featured_media} />
@@ -78,9 +77,10 @@ const Container = styled.div`
 
 const Title = styled.h1`
   margin: 0;
-  margin-top: 24px;
+  margin-top: 12px;
   margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+  color: #63ee63;
+  font-size: 21px;
 `;
 
 const StyledLink = styled(Link)`
@@ -104,9 +104,8 @@ const DateWrapper = styled.p`
  * selectors to style that HTML.
  */
 const Content = styled.div`
-  color: rgba(12, 17, 43, 0.8);
   word-break: break-word;
-
+  color: #88b888;
   * {
     max-width: 100%;
   }
