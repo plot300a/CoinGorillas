@@ -73,7 +73,7 @@ const Container = styled.div`
   width: 100%;
   margin: 0;
   padding: 0px;
-  border: 3px solid blue;
+  border: 0px solid blue;
 `;
 
 const Title = styled.h1`
@@ -133,9 +133,10 @@ const Content = styled.div`
 
   iframe {
     height: 60vh;
-    background-color: #353946;
+    background-color: #191a19;
     width: 100%;
     margin-bottom: 2rem;
+    border: 0px;
     /* display: block;
     margin: auto;
     width: 100%;
