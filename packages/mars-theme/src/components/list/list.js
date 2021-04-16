@@ -56,7 +56,7 @@ const Container = styled.section`
 `;
 
 const VideolistWrapper = styled.section`
-  width: 99%;
+  width: 100%;
   height: auto;
   margin: 0;
   padding-left: 0px;
@@ -65,9 +65,8 @@ const VideolistWrapper = styled.section`
   border-color: white;
   border-style: dotted;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  align-items: space-between;
+  justify-content: space-around;
 
   a: {
     color: #a7f7a7;
@@ -84,7 +83,7 @@ const Singleitembox = styled.section`
   margin-right: 7px;
   margin-bottom: 14px;
   border-width: 1px;
-  border-color: grey;
+  border-color: #2a2e2a;
   border-style: solid;
   align-content: center;
   }

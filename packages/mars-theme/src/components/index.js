@@ -138,6 +138,7 @@ const globalStyles = css`
     top: 85px;
     border: 0px solid brown;
     color: #ffffff;
+    justify-content: center;
 
     a:link {
       color: #fff;
@@ -151,7 +152,6 @@ const globalStyles = css`
     overflow: hidden;
     border: 0px solid purple;
     max-height: 170px;
-    position: relative;
   }
 
   .ytvideo_thumbnailwrapper img {
@@ -162,7 +162,7 @@ const globalStyles = css`
     font-size: 13px;
     padding-left: 3px;
     padding-right: 3px;
-    border: 1px solid lime;
+    border: 0px solid lime;
   }
 
   .borderbox {
