@@ -304,13 +304,11 @@ const globalStyles = css`
   } */
   /* 1224 */
   @media screen and (max-width: 1366px) {
-    width: 240px;
   }
 
   /* 1224 */
   @media screen and (max-width: 1224px) {
     .sidebar {
-      width: 240px;
      
       /*border: 1px solid lime; */
 

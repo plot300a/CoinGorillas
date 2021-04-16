@@ -70,9 +70,10 @@ const Post = ({ state, actions, libraries }) => {
 export default connect(Post);
 
 const Container = styled.div`
-  width: 800px;
+  width: 100%;
   margin: 0;
-  padding: 24px;
+  padding: 0px;
+  border: 3px solid blue;
 `;
 
 const Title = styled.h1`
@@ -131,10 +132,14 @@ const Content = styled.div`
   }
 
   iframe {
-    display: block;
+    height: 60vh;
+    background-color: #353946;
+    width: 100%;
+    margin-bottom: 2rem;
+    /* display: block;
     margin: auto;
     width: 100%;
-    /* min-height: 500px; */
+    min-height: 500px; */
   }
 
   blockquote {
