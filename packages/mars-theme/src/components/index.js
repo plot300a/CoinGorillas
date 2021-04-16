@@ -258,7 +258,7 @@ const globalStyles = css`
 
     .sidebarRow__title {
       padding: 0px;
-      font-size: 16px;
+      font-size: 13px;
     }
 
     .sidebarRow__icon {
