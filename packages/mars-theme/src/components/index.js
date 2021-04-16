@@ -131,6 +131,10 @@ const globalStyles = css`
     margin-right: 8px;
   }
 
+  .bordersee{
+  border: 1px dotted lime;
+}
+
   .app_bodySection {
     display: flex;
     position: absolute;
