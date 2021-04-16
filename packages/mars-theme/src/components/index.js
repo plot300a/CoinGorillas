@@ -68,7 +68,7 @@ export default connect(Theme);
 const globalStyles = css`
   body {
     margin: 0;
-    background-color: #191a19;
+    background-color: #0c0d0c; /*191a19;*/
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -88,7 +88,7 @@ const globalStyles = css`
     top: 0;
     z-index: 100;
     background-color: #251f1f;
-    border: 1px solid pink;
+    border: 1px solid #191a19;
     clear: both;
 
     .header__menuicon {
@@ -107,7 +107,7 @@ const globalStyles = css`
     display: flex;
     align-items: center;
     width: 40%;
-    border: 1px solid lightgrey;
+    border: 0px solid #191a19;
   }
 
   .header__input input {
@@ -137,6 +137,11 @@ const globalStyles = css`
     justify-items: space-between;
     top: 85px;
     border: 0px solid brown;
+    color: #ffffff;
+
+    a:link {
+      color: #fff;
+    }
   }
 
   .ytvideo_thumbnailwrapper {
@@ -191,12 +196,12 @@ const globalStyles = css`
   .sidebar {
     display: flex;
     flex-direction: column;
-    background-color: #251f1f;
-    /*width: 230px; */
+    background-color: #191a19; /*251f1f;*/
     height: 90vh;
     padding-top: 0px;
     transition: transform 0.2s ease-in;
     padding-left: 0;
+    padding-right: 7px;
     position: sticky;
     top: 7vh;
     left: 0;
@@ -241,14 +246,14 @@ const globalStyles = css`
   }
 
   .sidebarRow {
-    background-color: #;
+    background-color: #191a19;
     display: flex;
     padding: 0px;
     padding-left: 5px;
 
     align-items: center;
-    color: #a1fb6a;
-    border-bottom: 1px solid #2bbfff;
+    color: #88b888;
+    border-bottom: 1px solid #262826;
     margin: 0px;
     height: 6vh;
     .sidebarRow__icon {
