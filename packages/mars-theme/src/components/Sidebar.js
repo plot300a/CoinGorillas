@@ -34,32 +34,21 @@ const Sidebar = ({ sidebar }) => {
       <div className="SidebarSection">
         <SidebarRow Icon={HomeIcon} Title=" Home" size={23} />
         <SidebarRow Icon={WhatshotIcon} Title=" Trending" size={23} />
-        <SidebarRow Icon={InfoIcon} Title=" SXM 101" size={23} />{" "}
+        <SidebarRow Icon={InfoIcon} Title="Crypto Market Data" size={23} />{" "}
         <SidebarRow
           Icon={AirplanemodeActiveIcon}
-          Title=" SXM Airport"
+          Title="To The Moon"
           size={23}
         />
-        <SidebarRow Icon={PhotoCameraIcon} Title=" Photos" size={23} />{" "}
-        <SidebarRow Icon={VideoLibraryIcon} Title=" Video Library" size={23} />{" "}
+        <SidebarRow Icon={PhotoCameraIcon} Title="Crypto TV" size={23} />{" "}
+        <SidebarRow Icon={VideoLibraryIcon} Title="News" size={23} />{" "}
       </div>
 
       <div className="SidebarSection">
-        <SidebarRow Icon={LocationCityIcon} Title="Hotels" />
-        <SidebarRow Icon={HomeWorkIcon} Title="Villas & Condos" />
-        <SidebarRow Icon={BusinessIcon} Title="Timeshare" />
-        <SidebarRow Icon={HotelIcon} Title="AirBnB" />
+        <SidebarRow Icon={LocationCityIcon} Title="Defi" />
+        <SidebarRow Icon={HomeWorkIcon} Title="Exchanges" />
       </div>
 
-      <div className="SidebarSection">
-        <SidebarRow Icon={DriveEtaIcon} Title="Car Rentals" />
-        <SidebarRow Icon={PoolIcon} Title="Beaches" />
-        <SidebarRow Icon={DeckIcon} Title="Bars & Restaurants" />
-        <SidebarRow Icon={RowingIcon} Title="Activities" />
-        {/* deep sea fishing, parasailing, snorkeling, jetsky, plane watching */}
-        <SidebarRow Icon={LocationOnIcon} Title="Places" />
-        <SidebarRow Icon={SubscriptionsIcon} Title="Subscription" />
-      </div>
     </div>
   );
 };
