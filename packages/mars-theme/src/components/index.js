@@ -122,6 +122,25 @@ const globalStyles = css`
     border: 1px solid lightgrey;
   }
 
+.post__precomment{
+  border-bottom: 1px solid #191a19;
+}
+
+.comment {
+   font-size: 0.9rem;
+   border-bottom: 2px solid #353946;
+   img {
+      width: 50px;
+      height: 50px;
+   }
+   .comment__header {
+      color: #fff;
+   }
+   .comment__body {
+      overflow: hidden;
+   }
+}
+
   .header__icons {
     display: flex;
     align-items: center;
@@ -132,7 +151,7 @@ const globalStyles = css`
   }
 
   .bordersee{
-  border: 1px dotted lime;
+  border: 1px dotted #191a19;
 }
 
   .app_bodySection {

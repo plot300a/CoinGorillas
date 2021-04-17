@@ -45,7 +45,7 @@ const Post = ({ state, actions, libraries }) => {
         <Content>
           <Html2React html={post.content.rendered} />
         </Content>
-        <div>
+        <div className="post__precomment">
           <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
           {/* Only display author and date on posts */}
@@ -64,6 +64,18 @@ const Post = ({ state, actions, libraries }) => {
               </DateWrapper>
             </div>
           )}
+        </div>
+        <h2>Comments:</h2>
+        <div className="p-2 comment d-flex">
+          <img
+            src="https://yt3.ggpht.com/yti/ANoDKi5BiH3BI6lgBjTr2pnp3-2GZLOHlWfsU06-t6nyAQ=s88-c-k-c0x00ffffff-no-rj-mo"
+            alt="Tuso Jay"
+            className="mr-3 rounded-circle"
+          />
+          <div className="comment__body">
+            <p className="mb-1 comment__header">BObby Jay • 2 days ago</p>
+            <p className="mb-0">comments are made not unmade</p>
+          </div>
         </div>
       </Col>
     </Container>
