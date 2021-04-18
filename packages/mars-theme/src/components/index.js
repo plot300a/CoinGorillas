@@ -154,6 +154,10 @@ const globalStyles = css`
   border: 1px dotted #191a19;
 }
 
+.vidhzbordersee{
+  border: 2px dotted #fff;
+}
+
   .app_bodySection {
     display: flex;
     position: absolute;
@@ -308,12 +312,16 @@ const globalStyles = css`
       justify-items: space-between;
       border-width: 3px;
       border-color: blue;
-      border-style: solid;
+      border-style: dotted;
       background-image: linear-gradient(
         180deg,
         rgba(66, 174, 228, 0.1),
         rgba(66, 174, 228, 0)
       );
+    }
+
+    .videoHorizontal{
+      border: 2px solid lime;
     }
   }
 
@@ -404,6 +412,111 @@ const globalStyles = css`
 
   /* xxxxxxxxxxxxxxxxxxxxxx */
   /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx *
+
+.videoHorizontal {
+   border: 3px solid #fff;
+
+   cursor: pointer;
+
+   .videoHorizontal__left {
+      position: relative;
+      text-align: center;
+      padding-left: 0 !important;
+   }
+
+   .videoHorizontal__thumbnail {
+      width: 100%;
+      
+      .channel {
+         width: 50%;
+         border-radius: 50%;
+      }
+
+      .videoHorizontal__thumbnail-wrapper {
+         width: 100%;
+      }
+   }
+
+   .videoHorizontal__duration {
+      position: absolute;
+
+      bottom: 0.6rem;
+      right: 1.2rem;
+
+      font-size: 0.9rem;
+      padding: 0.2rem;
+      background: #080808ec;
+      border-radius: 3px;
+   }
+
+   &__details {
+      font-size: 0.9rem;
+   }
+
+   &__title {
+      font-size: 0.95rem;
+
+      // color: #fff;
+      letter-spacing: 0.3px;
+
+      @include line-clamp(2);
+   }
+   &__desc {
+      @include line-clamp(2);
+      font-size: 0.9rem;
+   }
+
+   &__channel {
+      img {
+         width: 36px;
+         height: 36px;
+
+         border-radius: 50%;
+         margin-right: 0.5rem;
+         cursor: pointer;
+      }
+      p {
+         font-size: 0.9rem;
+         @include line-clamp(1);
+      }
+   }
+}
+
+@media (max-width: $breakpoint-small) {
+   .videoHorizontal {
+      font-size: 0.8rem;
+
+      &__details {
+         @include line-clamp(1);
+      }
+      &__channel {
+         margin: 0.1rem 0;
+
+         img {
+            display: none;
+         }
+         p {
+            font-size: 0.8rem;
+         }
+      }
+
+      &__desc {
+         display: none;
+      }
+
+      &__title {
+         font-size: 0.9rem;
+         @include line-clamp(1);
+      }
+   }
+}
+
   /* xxxxxxxxxxxxxxxxxxxxxx */
   /* xxxxxxxxxxxxxxxxxxxxxx */
 `;

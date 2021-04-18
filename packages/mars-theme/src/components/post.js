@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
@@ -30,103 +29,119 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container>
-      <Row>
-        <Col lg={8} className="bordersee">
-          <div>
-            <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-          </div>
+    <SingleMainwrapper>
+      <SingleContentsection>
+        <div>
+          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+        </div>
 
-          {/* Look at the settings to see if we should include the featured image */}
-          {state.theme.featured.showOnPost && (
-            <FeaturedMedia id={post.featured_media} />
-          )}
-          {/* Render the content using the Html2React component so the HTML is processed
+        {/* Look at the settings to see if we should include the featured image */}
+        {state.theme.featured.showOnPost && (
+          <FeaturedMedia id={post.featured_media} />
+        )}
+        {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-          <Content>
-            <Html2React html={post.content.rendered} />
-          </Content>
-          <div className="post__precomment">
-            <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+        <Content>
+          <Html2React html={post.content.rendered} />
+        </Content>
+        <div className="post__precomment">
+          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
-            {/* Only display author and date on posts */}
-            {data.isPost && (
-              <div>
-                {author && (
-                  <StyledLink link={author.link}>
-                    <Author>
-                      By <b>{author.name}</b>
-                    </Author>
-                  </StyledLink>
-                )}
-                <DateWrapper>
-                  {" "}
-                  on <b>{date.toDateString()}</b>
-                </DateWrapper>
-              </div>
-            )}
-          </div>
-          <h2>Comments:</h2>
-          <div className="p-2 comment d-flex">
-            <img
-              src="https://yt3.ggpht.com/yti/ANoDKi5BiH3BI6lgBjTr2pnp3-2GZLOHlWfsU06-t6nyAQ=s88-c-k-c0x00ffffff-no-rj-mo"
-              alt="Tuso Jay"
-              className="mr-3 rounded-circle"
-            />
-            <div className="comment__body">
-              <p className="mb-1 comment__header">BObby Jay • 2 days ago</p>
-              <p className="mb-0">comments are made not unmade</p>
+          {/* Only display author and date on posts */}
+          {data.isPost && (
+            <div>
+              {author && (
+                <StyledLink link={author.link}>
+                  <Author>
+                    By <b>{author.name}</b>
+                  </Author>
+                </StyledLink>
+              )}
+              <DateWrapper>
+                {" "}
+                on <b>{date.toDateString()}</b>
+              </DateWrapper>
             </div>
+          )}
+        </div>
+        <h2>Comments:</h2>
+        <div className="p-2 comment d-flex">
+          <img
+            src="https://yt3.ggpht.com/yti/ANoDKi5BiH3BI6lgBjTr2pnp3-2GZLOHlWfsU06-t6nyAQ=s88-c-k-c0x00ffffff-no-rj-mo"
+            alt="Tuso Jay"
+            className="mr-3 rounded-circle"
+          />
+          <div className="comment__body">
+            <p className="mb-1 comment__header">BObby Jay • 2 days ago</p>
+            <p className="mb-0">comments are made not unmade</p>
           </div>
-        </Col>
-        <Col lg={4}>
-          <Row className="py-2 m-1 videoHorizontal align-items-center">
-            {/* //TODO refractor grid */}
-            <Col
-              xs={6}
-              /*} md={searchScreen || subScreen ? 4 : 6} */
-              className="videoHorizontal__left"
-            >
-              <span className="videoHorizontal__duration">duration</span>
-            </Col>
-            <Col
-              xs={6}
-              /*} md={searchScreen || subScreen ? 8 : 6} */
-              className="p-0 videoHorizontal__right"
-            >
-              <p className="mb-1 videoHorizontal__title">title</p>
+        </div>
+      </SingleContentsection>
+      <VideoSidebar>
+        <div className="py-2 m-1 videoHorizontal align-items-center">
+          {/* //TODO refractor grid */}
+          <div
+            xs={6}
+            /*} md={searchScreen || subScreen ? 4 : 6} */
+            className="videoHorizontal__left"
+          >
+            <span className="videoHorizontal__duration">duration</span>
+          </div>
+          <div
+            xs={6}
+            /*} md={searchScreen || subScreen ? 8 : 6} */
+            className="p-0 videoHorizontal__right"
+          >
+            <p className="mb-1 videoHorizontal__title">title</p>
 
-              <div className="videoHorizontal__details">views</div>
+            <div className="videoHorizontal__details">views</div>
 
-              <p className="mt-1 videoHorizontal__desc">description</p>
+            <p className="mt-1 videoHorizontal__desc">description</p>
 
-              <div className="my-1 videoHorizontal__channel d-flex align-items-center">
-                <p className="mb-0">channelTitle</p>
-              </div>
+            <div className="my-1 videoHorizontal__channel d-flex align-items-center">
+              <p className="mb-0">channelTitle</p>
+            </div>
 
-              <p className="mt-2">Videos</p>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+            <p className="mt-2">Videos</p>
+          </div>
+        </div>
+      </VideoSidebar>
+    </SingleMainwrapper>
   ) : null;
 };
 
 export default connect(Post);
 
-const Container = styled.div`
-  width: 95%;
-  margin: 0;
-  padding: 0px 7px 0 7px;
-  border: 0px solid blue;
+const SingleMainwrapper = styled.div`
+  display: flex;
+  width: 87vw;
+  border-width: 0px;
+  border-color: grey;
+  border-style: solid;
+  align-items: space-around;
+`;
+
+const SingleContentsection = styled.div`
+  flex: 0.7;
+  margin-right: 7px;
+  border-width: 0px;
+  border-color: yellow;
+  border-style: dotted;
+`;
+
+const VideoSidebar = styled.div`
+  display: flex;
+  flex: 0.3;
+  justify-items: space-between;
+  border-width: 0px;
+  border-color: red;
+  border-style: dotted;
 `;
 
 const Title = styled.h1`
   margin: 0;
   margin-top: 12px;
   margin-bottom: 8px;
-  color: #63ee63;
   font-size: 21px;
 `;
 
@@ -135,13 +150,11 @@ const StyledLink = styled(Link)`
 `;
 
 const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
   font-size: 0.9em;
   display: inline;
 `;
 
 const DateWrapper = styled.p`
-  color: rgba(12, 17, 43, 0.9);
   font-size: 0.9em;
   display: inline;
 `;
@@ -152,7 +165,6 @@ const DateWrapper = styled.p`
  */
 const Content = styled.div`
   word-break: break-word;
-  color: #88b888;
   * {
     max-width: 100%;
   }
@@ -179,7 +191,6 @@ const Content = styled.div`
 
   iframe {
     height: 60vh;
-    background-color: #191a19;
     width: 100%;
     margin-bottom: 2rem;
     border: 0px;
@@ -191,13 +202,11 @@ const Content = styled.div`
 
   blockquote {
     margin: 16px 0;
-    background-color: rgba(0, 0, 0, 0.1);
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
   }
 
   a {
-    color: rgb(31, 56, 197);
     text-decoration: underline;
   }
 
@@ -216,18 +225,11 @@ const Content = styled.div`
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 4px;
-    outline-color: transparent;
-    transition: outline-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: outline-divor 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     margin: 8px 0 4px 0;
-
-    &:focus {
-      outline-color: #1f38c5;
-    }
   }
 
   input[type="submit"] {
@@ -246,8 +248,6 @@ const Content = styled.div`
     font-size: 14px;
     line-height: 1.42857143;
     border-radius: 4px;
-    color: #fff;
-    background-color: #1f38c5;
   }
 
   /* WordPress Core Align Classes */
