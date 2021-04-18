@@ -34,7 +34,7 @@ const bar = index => css`
 `;
 
 const Container = styled.div`
-  width: 800px;
+  width: 100%;
   margin: 0;
   padding: 24px;
   display: flex;

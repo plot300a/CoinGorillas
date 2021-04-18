@@ -31,53 +31,84 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-      <Col lg={8} className="bordersee">
-        <div>
-          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-        </div>
-
-        {/* Look at the settings to see if we should include the featured image */}
-        {state.theme.featured.showOnPost && (
-          <FeaturedMedia id={post.featured_media} />
-        )}
-        {/* Render the content using the Html2React component so the HTML is processed
-       by the processors we included in the libraries.html2react.processors array. */}
-        <Content>
-          <Html2React html={post.content.rendered} />
-        </Content>
-        <div className="post__precomment">
-          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-
-          {/* Only display author and date on posts */}
-          {data.isPost && (
-            <div>
-              {author && (
-                <StyledLink link={author.link}>
-                  <Author>
-                    By <b>{author.name}</b>
-                  </Author>
-                </StyledLink>
-              )}
-              <DateWrapper>
-                {" "}
-                on <b>{date.toDateString()}</b>
-              </DateWrapper>
-            </div>
-          )}
-        </div>
-        <h2>Comments:</h2>
-        <div className="p-2 comment d-flex">
-          <img
-            src="https://yt3.ggpht.com/yti/ANoDKi5BiH3BI6lgBjTr2pnp3-2GZLOHlWfsU06-t6nyAQ=s88-c-k-c0x00ffffff-no-rj-mo"
-            alt="Tuso Jay"
-            className="mr-3 rounded-circle"
-          />
-          <div className="comment__body">
-            <p className="mb-1 comment__header">BObby Jay • 2 days ago</p>
-            <p className="mb-0">comments are made not unmade</p>
+      <Row>
+        <Col lg={8} className="bordersee">
+          <div>
+            <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           </div>
-        </div>
-      </Col>
+
+          {/* Look at the settings to see if we should include the featured image */}
+          {state.theme.featured.showOnPost && (
+            <FeaturedMedia id={post.featured_media} />
+          )}
+          {/* Render the content using the Html2React component so the HTML is processed
+       by the processors we included in the libraries.html2react.processors array. */}
+          <Content>
+            <Html2React html={post.content.rendered} />
+          </Content>
+          <div className="post__precomment">
+            <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+
+            {/* Only display author and date on posts */}
+            {data.isPost && (
+              <div>
+                {author && (
+                  <StyledLink link={author.link}>
+                    <Author>
+                      By <b>{author.name}</b>
+                    </Author>
+                  </StyledLink>
+                )}
+                <DateWrapper>
+                  {" "}
+                  on <b>{date.toDateString()}</b>
+                </DateWrapper>
+              </div>
+            )}
+          </div>
+          <h2>Comments:</h2>
+          <div className="p-2 comment d-flex">
+            <img
+              src="https://yt3.ggpht.com/yti/ANoDKi5BiH3BI6lgBjTr2pnp3-2GZLOHlWfsU06-t6nyAQ=s88-c-k-c0x00ffffff-no-rj-mo"
+              alt="Tuso Jay"
+              className="mr-3 rounded-circle"
+            />
+            <div className="comment__body">
+              <p className="mb-1 comment__header">BObby Jay • 2 days ago</p>
+              <p className="mb-0">comments are made not unmade</p>
+            </div>
+          </div>
+        </Col>
+        <Col lg={4}>
+          <Row className="py-2 m-1 videoHorizontal align-items-center">
+            {/* //TODO refractor grid */}
+            <Col
+              xs={6}
+              /*} md={searchScreen || subScreen ? 4 : 6} */
+              className="videoHorizontal__left"
+            >
+              <span className="videoHorizontal__duration">duration</span>
+            </Col>
+            <Col
+              xs={6}
+              /*} md={searchScreen || subScreen ? 8 : 6} */
+              className="p-0 videoHorizontal__right"
+            >
+              <p className="mb-1 videoHorizontal__title">title</p>
+
+              <div className="videoHorizontal__details">views</div>
+
+              <p className="mt-1 videoHorizontal__desc">description</p>
+
+              <div className="my-1 videoHorizontal__channel d-flex align-items-center">
+                <p className="mb-0">channelTitle</p>
+              </div>
+
+              <p className="mt-2">Videos</p>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </Container>
   ) : null;
 };
