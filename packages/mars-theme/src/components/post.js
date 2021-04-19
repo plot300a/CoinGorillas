@@ -197,7 +197,7 @@ const VideoSidebar = styled.div`
   display: flex;
   flex: 0.3;
   justify-items: space-between;
-  border-width: 1px;
+  border-width: 0px;
   border-color: red;
   border-style: dotted;
 `;
