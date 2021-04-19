@@ -172,6 +172,51 @@ const globalStyles = css`
     }
   }
 
+.VideoSidebar{
+  display: flex;
+  flex: 0.3;
+  border-width: 0px;
+  border-color: red;
+  border-style: dotted;
+align-items: center;
+}
+
+.sidebarVidntit{
+  width: 100%;
+  border: 1px solid white;
+}
+
+.sidebarVid{
+  display: flex;
+  margin-right: 5px;  
+  padding: 0px;
+  border: 2px solid purple;
+  overflow: hidden;
+  flex: .6;
+  max-width: 200px;
+  max-height: 100px;
+
+  img{
+    width: auto;
+    overflow: hidden;
+    margin-top: -70px;
+    max-height: 200px;
+  }
+}
+
+.sidebarTit{
+  display: flex;
+  flex: .3;
+}
+
+.sidecard__details {
+ 
+    font-size: 13px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid lime;
+  }
+
   .ytvideo_thumbnailwrapper {
     display: flex;
     width: 255px;

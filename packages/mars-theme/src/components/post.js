@@ -81,7 +81,7 @@ const Post = ({ state, actions, libraries }) => {
           </div>
         </div>
       </SingleContentsection>
-      <VideoSidebar>
+      <div className="VideoSidebar">
         <div>
           {postsPerCategory.map(({ posts, category }, index) => (
             <div key={index}>
@@ -92,25 +92,31 @@ const Post = ({ state, actions, libraries }) => {
                    * If the want to show featured media in the
                    * list of featured posts, we render the media.
                    */}
-                  <SidebarThumbnail>
-                    <Link link={post.link}>
-                      {state.theme.featured.showOnList && (
-                        <FeaturedMedia id={post.featured_media} />
-                      )}
-                    </Link>
-                  </SidebarThumbnail>
-                  {/* If the post has an excerpt (short summary text), we render it */}
-                  {/* lex change starts here. item.excerpt && (
+
+                  <div className="sidebarVidntit">
+                    <div className="sidebarVid">
+                      <Link link={post.link}>
+                        {state.theme.featured.showOnList && (
+                          <FeaturedMedia id={post.featured_media} />
+                        )}
+                      </Link>
+                    </div>
+                    {/* If the post has an excerpt (short summary text), we render it */}
+                    {/* lex change starts here. item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       ) */}
+                    <div className="sidebarTit">
+                      <Link link={post.link}>
+                        <SideTitle
+                          dangerouslySetInnerHTML={{
+                            __html: post.title.rendered
+                          }}
+                        />
+                      </Link>
+                    </div>
+                  </div>
 
-                  <Link link={post.link}>
-                    <Title
-                      dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                    />
-                  </Link>
-
-                  <div className="videocard__details">
+                  <div className="sidecard__details">
                     {/* If the post has an author, we render a clickable author text. */}
                     {author && (
                       <Link link={author.link}>
@@ -124,6 +130,7 @@ const Post = ({ state, actions, libraries }) => {
                       on <b>{date.toDateString()}</b>
                     </div>
                   </div>
+
                   {/*<div>
                     <div px={2}>
                       <Link link={post.link}>
@@ -144,7 +151,7 @@ const Post = ({ state, actions, libraries }) => {
             </div>
           ))}
         </div>
-      </VideoSidebar>
+      </div>
     </SingleMainwrapper>
   ) : null;
 };
@@ -163,26 +170,14 @@ const SingleMainwrapper = styled.div`
   align-items: space-around;
 `;
 
-const SidebarThumbnail = styled.div`
-  display: flex;
-  width: 255px;
-  padding: 0px;
-  overflow: hidden;
-  border: 2px solid purple;
-  max-height: 170px;
-
-  img {
-    width: 200px;
-  }
-`;
-
 const SidebarMore = styled.div`
   display: flex;
   width: 100%;
+  margin-bottom: 7px;
   border-width: 1px;
-  border-color: grey;
+  border-color: #181515;
   border-style: solid;
-  align-items: space-around;
+  align-items: space-between;
 `;
 
 const SingleContentsection = styled.div`
@@ -193,20 +188,25 @@ const SingleContentsection = styled.div`
   border-style: dotted;
 `;
 
-const VideoSidebar = styled.div`
+const SideTitle = styled.h3`
   display: flex;
-  flex: 0.3;
-  justify-items: space-between;
-  border-width: 0px;
-  border-color: red;
-  border-style: dotted;
-`;
-
-const Title = styled.h1`
+  width: auto;
   margin: 0;
   margin-top: 12px;
   margin-bottom: 8px;
-  font-size: 21px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #b8e89f;
+`;
+
+const Title = styled.h1`
+  display: flex;
+  width: auto;
+  margin: 0;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 19px;
+  color: #b8e89f;
 `;
 
 const StyledLink = styled(Link)`
