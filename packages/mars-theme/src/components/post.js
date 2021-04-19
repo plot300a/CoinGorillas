@@ -93,31 +93,31 @@ const Post = ({ state, actions, libraries }) => {
                    * list of featured posts, we render the media.
                    */}
                   <div class="ytvideo_thumbnailwrapper">
-                    <div link={post.link}>
+                    <Link link={post.link}>
                       {state.theme.featured.showOnList && (
                         <FeaturedMedia id={post.featured_media} />
                       )}
-                    </div>
+                    </Link>
                   </div>
                   {/* If the post has an excerpt (short summary text), we render it */}
                   {/* lex change starts here. item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       ) */}
 
-                  <div link={post.link}>
+                  <Link link={post.link}>
                     <Title
                       dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                     />
-                  </div>
+                  </Link>
 
                   <div className="videocard__details">
                     {/* If the post has an author, we render a clickable author text. */}
                     {author && (
-                      <div link={author.link}>
+                      <Link link={author.link}>
                         <div>
                           By <b>{author.name}</b>
                         </div>
-                      </div>
+                      </Link>
                     )}
                     <div>
                       {" "}

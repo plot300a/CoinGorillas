@@ -1,5 +1,5 @@
 export const categoriesWidgetsHome = {
-  cities: 4
+  CoinsTV: 2
   /*
  culture: 6,
   lifestyle: 59,
