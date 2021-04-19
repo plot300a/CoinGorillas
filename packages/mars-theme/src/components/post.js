@@ -85,20 +85,20 @@ const Post = ({ state, actions, libraries }) => {
         <div>
           {postsPerCategory.map(({ posts, category }, index) => (
             <div key={index}>
-              <div>{category.name}</div>
+              <div>More...{/*category.name*/}</div>
               {posts.map((post, index) => (
-                <article key={index}>
+                <SidebarMore key={index}>
                   {/*
                    * If the want to show featured media in the
                    * list of featured posts, we render the media.
                    */}
-                  <div class="ytvideo_thumbnailwrapper">
+                  <SidebarThumbnail>
                     <Link link={post.link}>
                       {state.theme.featured.showOnList && (
                         <FeaturedMedia id={post.featured_media} />
                       )}
                     </Link>
-                  </div>
+                  </SidebarThumbnail>
                   {/* If the post has an excerpt (short summary text), we render it */}
                   {/* lex change starts here. item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
@@ -134,7 +134,7 @@ const Post = ({ state, actions, libraries }) => {
                       <Html2React html={post.excerpt.rendered} />
                     </div>
                   </div>*/}
-                </article>
+                </SidebarMore>
               ))}
               <Link link={category.link}>
                 <p>
@@ -163,6 +163,28 @@ const SingleMainwrapper = styled.div`
   align-items: space-around;
 `;
 
+const SidebarThumbnail = styled.div`
+  display: flex;
+  width: 255px;
+  padding: 0px;
+  overflow: hidden;
+  border: 2px solid purple;
+  max-height: 170px;
+
+  img {
+    width: 200px;
+  }
+`;
+
+const SidebarMore = styled.div`
+  display: flex;
+  width: 100%;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  align-items: space-around;
+`;
+
 const SingleContentsection = styled.div`
   flex: 0.7;
   margin-right: 7px;
@@ -175,7 +197,7 @@ const VideoSidebar = styled.div`
   display: flex;
   flex: 0.3;
   justify-items: space-between;
-  border-width: 0px;
+  border-width: 1px;
   border-color: red;
   border-style: dotted;
 `;

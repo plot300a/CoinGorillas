@@ -4,7 +4,8 @@ const settings = {
     frontity: {
       url: "https://coinwatch.thedailygrindsxm.com",
       title: "Coin Gorillas",
-      description: "Bitcoin, Dogecoin, Ethereum, Crypto News, Trends & Price Data"
+      description:
+        "Bitcoin, Dogecoin, Ethereum, Crypto News, Trends & Price Data"
     }
   },
   packages: [
@@ -15,6 +16,7 @@ const settings = {
           menu: [
             ["Crypto TV", "/c/crypto-coins-tv/"],
             ["News", "/c/crypto-currency-news/"],
+            ["Raoul Pal", "/t/raoul-pal"],
             ["Dogecoin", "/c/crypto-coins-tv/dogecoin-mans-best-friend/"]
           ],
           featured: {
