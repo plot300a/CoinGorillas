@@ -29,10 +29,7 @@ const Theme = ({ state }) => {
       <Head handleToggleSidebar={handleToggleSidebar}>
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
-        <meta
-          name="google-site-verification"
-          content="pcyiVpBoTlwv0ZqTyh4aKINQGgnMsW9z6srhF9ca1tY"
-        />
+        <meta name="google-site-verification" content="qLKKD72w3u4qjzo-h9p1dR8YOHHD7DTjFSEtI4m_A1E" />
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's. 
