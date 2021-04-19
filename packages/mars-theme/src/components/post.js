@@ -3,6 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import { getPostsGroupedByCategory } from "../helpers";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -17,6 +18,9 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
+  // Get posts by getPostsGroupedByCategory
+  const postsPerCategory = getPostsGroupedByCategory(state.source);
+  console.log(postsPerCategory);
   /**
    * Once the post has loaded in the DOM, prefetch both the
    * home posts and the list component so if the user visits
@@ -78,32 +82,67 @@ const Post = ({ state, actions, libraries }) => {
         </div>
       </SingleContentsection>
       <VideoSidebar>
-        <div className="py-2 m-1 videoHorizontal align-items-center">
-          {/* //TODO refractor grid */}
-          <div
-            xs={6}
-            /*} md={searchScreen || subScreen ? 4 : 6} */
-            className="videoHorizontal__left"
-          >
-            <span className="videoHorizontal__duration">duration</span>
-          </div>
-          <div
-            xs={6}
-            /*} md={searchScreen || subScreen ? 8 : 6} */
-            className="p-0 videoHorizontal__right"
-          >
-            <p className="mb-1 videoHorizontal__title">title</p>
+        <div>
+          {postsPerCategory.map(({ posts, category }, index) => (
+            <div key={index}>
+              <div>{category.name}</div>
+              {posts.map((post, index) => (
+                <article key={index}>
+                  {/*
+                   * If the want to show featured media in the
+                   * list of featured posts, we render the media.
+                   */}
+                  <div class="ytvideo_thumbnailwrapper">
+                    <div link={post.link}>
+                      {state.theme.featured.showOnList && (
+                        <FeaturedMedia id={post.featured_media} />
+                      )}
+                    </div>
+                  </div>
+                  {/* If the post has an excerpt (short summary text), we render it */}
+                  {/* lex change starts here. item.excerpt && (
+        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+      ) */}
 
-            <div className="videoHorizontal__details">views</div>
+                  <div link={post.link}>
+                    <Title
+                      dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                    />
+                  </div>
 
-            <p className="mt-1 videoHorizontal__desc">description</p>
-
-            <div className="my-1 videoHorizontal__channel d-flex align-items-center">
-              <p className="mb-0">channelTitle</p>
+                  <div className="videocard__details">
+                    {/* If the post has an author, we render a clickable author text. */}
+                    {author && (
+                      <div link={author.link}>
+                        <div>
+                          By <b>{author.name}</b>
+                        </div>
+                      </div>
+                    )}
+                    <div>
+                      {" "}
+                      on <b>{date.toDateString()}</b>
+                    </div>
+                  </div>
+                  {/*<div>
+                    <div px={2}>
+                      <Link link={post.link}>
+                        <h2>
+                          <Html2React html={post.title.rendered} />
+                        </h2>
+                      </Link>
+                      <Html2React html={post.excerpt.rendered} />
+                    </div>
+                  </div>*/}
+                </article>
+              ))}
+              <Link link={category.link}>
+                <p>
+                  &gt;&gt; See more posts at <strong>{category.name}</strong>
+                </p>
+              </Link>
             </div>
-
-            <p className="mt-2">Videos</p>
-          </div>
+          ))}
         </div>
       </VideoSidebar>
     </SingleMainwrapper>
@@ -112,6 +151,9 @@ const Post = ({ state, actions, libraries }) => {
 
 export default connect(Post);
 
+/*  -------------------------------------- */
+
+/* ---------------------------------------- */
 const SingleMainwrapper = styled.div`
   display: flex;
   width: 87vw;

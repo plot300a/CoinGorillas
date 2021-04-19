@@ -4,7 +4,7 @@ const settings = {
     frontity: {
       url: "https://coinwatch.thedailygrindsxm.com",
       title: "Coin Gorillas",
-      description: "Crypto Currenty Highlights"
+      description: "Bitcoin, Dogecoin, Ethereum, Crypto News, Trends & Price Data"
     }
   },
   packages: [
