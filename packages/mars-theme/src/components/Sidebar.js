@@ -60,6 +60,8 @@ const Sidebar = ({ sidebar }) => {
         <SidebarRow Icon={FaceIcon} Title="Michael Saylor" size={23} />{" "}
         <SidebarRow Icon={FaceIcon} Title="Raul Pal" />
         <SidebarRow Icon={FaceIcon} Title="Chamath Palihapitiya" />
+        <SidebarRow Icon={FaceIcon} Title="Vitalik Buterin" />
+        
       </div>
 
       <div className="SidebarSection">

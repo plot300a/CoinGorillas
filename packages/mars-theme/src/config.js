@@ -1,5 +1,6 @@
 export const categoriesWidgetsHome = {
-  CoinsTV: 2
+  CoinsTV: 2,
+  News: 6
   /*
  culture: 6,
   lifestyle: 59,
