@@ -247,6 +247,12 @@ align-items: center;
     margin: 0px 0 5px 0;
   }
 
+  .coinsTokens{
+    display: flex;
+    letter-spacing: 2px;
+    
+  }
+
   .postlist_postmeta {
     font-size: 13px;
     color: grey;
