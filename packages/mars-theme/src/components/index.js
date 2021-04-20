@@ -183,39 +183,46 @@ align-items: center;
 
 .sidebarVidntit{
   width: 100%;
-  border: 1px solid white;
+  padding: 0px;
+  padding-bottom
 }
 
 .sidebarVid{
-  display: flex;
+  position: relative;
   margin-right: 5px;  
   padding: 0px;
-  border: 2px solid purple;
+  text-align: center;
   overflow: hidden;
-  flex: .6;
-  max-width: 200px;
-  max-height: 100px;
+  width: 168px;
+  height: 94px;
+  border: 1px;
 
   img{
-    width: auto;
+    width: 100%;
     overflow: hidden;
     margin-top: -70px;
     max-height: 200px;
   }
 }
 
-.sidebarTit{
-  display: flex;
-  flex: .3;
+.vidhorizontal_right{
+  padding: 0px;
+
+.vidhorizontal_title{}
+  .vidhorizontal__details {
+ color: #2d2725;
+ font-size: 12px;
+ padding: 0px;
+ margin-top: 5px;
+ border: 0px solid lime;
+
+ a:link{
+  color: #2d2725;
+ }
+}
 }
 
-.sidecard__details {
- 
-    font-size: 13px;
-    padding-left: 3px;
-    padding-right: 3px;
-    border: 1px solid lime;
-  }
+
 
   .ytvideo_thumbnailwrapper {
     display: flex;

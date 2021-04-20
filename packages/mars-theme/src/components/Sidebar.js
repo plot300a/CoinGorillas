@@ -53,22 +53,6 @@ const Sidebar = ({ sidebar }) => {
           <Eth />
           <Xrp />
         </div>
-
-        {/*  <li>
-          <Bnb /> - Binance $
-        </li>
-         <li>
-            <Xrp /> - Ripple
-          </li>
-          <li>
-            <Doge /> - DogeCoin
-          </li>
-          <li>
-            <Usdt /> - Theiter
-          </li>
-          <li>
-            <Ada /> - Cardano
-       </li> */}
       </div>
 
       <div className="SidebarSection">

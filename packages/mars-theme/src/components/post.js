@@ -85,7 +85,7 @@ const Post = ({ state, actions, libraries }) => {
         <div>
           {postsPerCategory.map(({ posts, category }, index) => (
             <div key={index}>
-              <div>More...{/*category.name*/}</div>
+              {/* <div>More...category.name</div> */}
               {posts.map((post, index) => (
                 <SidebarMore key={index}>
                   {/*
@@ -105,7 +105,9 @@ const Post = ({ state, actions, libraries }) => {
                     {/* lex change starts here. item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       ) */}
-                    <div className="sidebarTit">
+                  </div>
+                  <div className="vidhorizontal_right">
+                    <div className="vidhorizontal_title">
                       <Link link={post.link}>
                         <SideTitle
                           dangerouslySetInnerHTML={{
@@ -114,20 +116,19 @@ const Post = ({ state, actions, libraries }) => {
                         />
                       </Link>
                     </div>
-                  </div>
-
-                  <div className="sidecard__details">
-                    {/* If the post has an author, we render a clickable author text. */}
-                    {author && (
-                      <Link link={author.link}>
-                        <div>
-                          By <b>{author.name}</b>
-                        </div>
-                      </Link>
-                    )}
-                    <div>
-                      {" "}
-                      on <b>{date.toDateString()}</b>
+                    <div className="vidhorizontal__details">
+                      {/* If the post has an author, we render a clickable author text. */}
+                      {author && (
+                        <Link link={author.link}>
+                          <div>
+                            By <b>{author.name}</b>
+                          </div>
+                        </Link>
+                      )}
+                      <div>
+                        {" "}
+                        on <b>{date.toDateString()}</b>
+                      </div>
                     </div>
                   </div>
 
@@ -192,7 +193,7 @@ const SideTitle = styled.h3`
   display: flex;
   width: auto;
   margin: 0;
-  margin-top: 12px;
+  padding: 0px;
   margin-bottom: 8px;
   font-size: 13px;
   font-weight: normal;
