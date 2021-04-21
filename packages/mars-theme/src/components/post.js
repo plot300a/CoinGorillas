@@ -4,6 +4,7 @@ import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
 import { getPostsGroupedByCategory } from "../helpers";
+import Comments from "./comments";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -70,7 +71,7 @@ const Post = ({ state, actions, libraries }) => {
         </div>
         <h2>Comments:</h2>
         <div className="p-2 comment d-flex">
-          <img
+          {/*<img
             src="https://yt3.ggpht.com/yti/ANoDKi5BiH3BI6lgBjTr2pnp3-2GZLOHlWfsU06-t6nyAQ=s88-c-k-c0x00ffffff-no-rj-mo"
             alt="Tuso Jay"
             className="mr-3 rounded-circle"
@@ -78,7 +79,9 @@ const Post = ({ state, actions, libraries }) => {
           <div className="comment__body">
             <p className="mb-1 comment__header">BObby Jay • 2 days ago</p>
             <p className="mb-0">comments are made not unmade</p>
-          </div>
+          </div> */}
+
+          <Comments postId={post.id} />
         </div>
       </SingleContentsection>
       <div className="VideoSidebar">
