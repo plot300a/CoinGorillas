@@ -17,7 +17,7 @@ const settings = {
             ["Crypto TV", "/c/crypto-coins-tv/"],
             ["News", "/c/crypto-currency-news/"],
             ["Raoul Pal", "/t/raoul-pal"],
-            ["Dogecoin", "/c/crypto-coins-tv/dogecoin-mans-best-friend/"]
+            ["Crypto Currency 101", "/c/crypto-101/"]
           ],
           featured: {
             showOnList: true,

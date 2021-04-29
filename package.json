@@ -5,8 +5,9 @@
   "description": "",
   "keywords": [],
   "scripts": {
-    "dev": "frontity dev",
-    "build": "frontity build"
+    "dev": "cross-env REACT_APP_API_KEY=63fef6f1a30c6aca778b42f84b3134a3 frontity dev",
+    "build": "cross-env REACT_APP_API_KEY=63fef6f1a30c6aca778b42f84b3134a3 frontity build",
+    "serve": "cross-env REACT_APP_API_KEY=63fef6f1a30c6aca778b42f84b3134a3 frontity serve"
   },
   "prettier": {},
   "dependencies": {
@@ -20,6 +21,9 @@
     "@frontity/yoast": "2.1.1",
     "@material-ui/core": "4.11.3",
     "@material-ui/icons": "4.11.2",
+    "axios": "0.21.1",
+    "cross-env": "7.0.3",
+    "firebase": "8.4.1",
     "frontity": "^1.14.2",
     "prop-types": "15.7.2",
     "react-bootstrap": "1.5.2",

@@ -10,7 +10,8 @@ import Title from "./title";
 import PageError from "./page-error";
 import "./Styles.css";
 import Sidebar from "./Sidebar";
-/**
+import Coinwatch from "./coinswatch.js";
+/*
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
@@ -54,8 +55,17 @@ const Theme = ({ state }) => {
             <Loading when={data.isFetching} />
             <List when={data.isArchive} />
             <Post when={data.isPostType} />
-            <PageError when={data.isError} />
+            <Coinwatch exact path="/coinswatch" />
           </Switch>
+
+          {/*<FlikPhotos /> */}
+          {/*  
+          
+
+          <CoinWatch when={data.isError} />
+          <CoinWatch />
+          <FlikPhotos when={data.isError} />
+          */}
         </div>
       </div>
     </>
