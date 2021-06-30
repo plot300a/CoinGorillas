@@ -55,10 +55,17 @@ export default function Coinwatch() {
           />
         );
       })}
+      <Coingeckocredit>Powered by CoinGecko API</Coingeckocredit>
     </CoinAppWraper>
   );
 }
 
+const Coingeckocredit = styled.div`
+  height: 20px;
+  font-size: 12px;
+  color: lime;
+  background-color: #191a19;
+`;
 const CoinAppWraper = styled.div`
 width: 100%;
   display: flex;
@@ -66,8 +73,9 @@ width: 100%;
   align-items: center;
   margin-top: 14px;
   color: #fff;
-  border: 0px solid lime;
+  border-bottom: 0px solid #191a19;
 padding-right: 20px;
+padding-bottom: 10px;
 
   .coin-search {
   margin-bottom: 64px;
