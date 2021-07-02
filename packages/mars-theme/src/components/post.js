@@ -3,6 +3,8 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import { getPostsGroupedByCategory } from "../helpers";
+import Comments from "./comments";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -17,6 +19,9 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
+  // Get posts by getPostsGroupedByCategory
+  const postsPerCategory = getPostsGroupedByCategory(state.source);
+  console.log(postsPerCategory);
   /**
    * Once the post has loaded in the DOM, prefetch both the
    * home posts and the list component so if the user visits
@@ -29,58 +34,183 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container>
-      <div>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-      </div>
+    <SingleMainwrapper>
+      <SingleContentsection>
+        <div>
+          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+        </div>
 
-      {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
-
-      {/* Render the content using the Html2React component so the HTML is processed
-       by the processors we included in the libraries.html2react.processors array. */}
-      <Content>
-        <Html2React html={post.content.rendered} />
-      </Content>
-      <div>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-
-        {/* Only display author and date on posts */}
-        {data.isPost && (
-          <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
-            <DateWrapper>
-              {" "}
-              on <b>{date.toDateString()}</b>
-            </DateWrapper>
-          </div>
+        {/* Look at the settings to see if we should include the featured image */}
+        {state.theme.featured.showOnPost && (
+          <FeaturedMedia id={post.featured_media} />
         )}
+        {/* Render the content using the Html2React component so the HTML is processed
+       by the processors we included in the libraries.html2react.processors array. */}
+        <Content>
+          <Html2React html={post.content.rendered} />
+        </Content>
+        <div className="post__precomment">
+          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+
+          {/* Only display author and date on posts */}
+          {data.isPost && (
+            <div>
+              {author && (
+                <StyledLink link={author.link}>
+                  <Author>
+                    By <b>{author.name}</b>
+                  </Author>
+                </StyledLink>
+              )}
+              <DateWrapper>
+                {" "}
+                on <b>{date.toDateString()}</b>
+              </DateWrapper>
+            </div>
+          )}
+        </div>
+        <h2>Comments:</h2>
+        <div className="p-2 comment d-flex">
+          {/*<img
+            src="https://yt3.ggpht.com/yti/ANoDKi5BiH3BI6lgBjTr2pnp3-2GZLOHlWfsU06-t6nyAQ=s88-c-k-c0x00ffffff-no-rj-mo"
+            alt="Tuso Jay"
+            className="mr-3 rounded-circle"
+          />
+          <div className="comment__body">
+            <p className="mb-1 comment__header">BObby Jay • 2 days ago</p>
+            <p className="mb-0">comments are made not unmade</p>
+          </div> */}
+
+          <Comments postId={post.id} />
+        </div>
+      </SingleContentsection>
+      <div className="VideoSidebar">
+        <div>
+          {postsPerCategory.map(({ posts, category }, index) => (
+            <div key={index}>
+              {/* <div>More...category.name</div> */}
+              {posts.map((post, index) => (
+                <SidebarMore key={index}>
+                  {/*
+                   * If the want to show featured media in the
+                   * list of featured posts, we render the media.
+                   */}
+
+                  <div className="sidebarVidntit">
+                    <div className="sidebarVid">
+                      <Link link={post.link}>
+                        {state.theme.featured.showOnList && (
+                          <FeaturedMedia id={post.featured_media} />
+                        )}
+                      </Link>
+                    </div>
+                    {/* If the post has an excerpt (short summary text), we render it */}
+                    {/* lex change starts here. item.excerpt && (
+        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+      ) */}
+                  </div>
+                  <div className="vidhorizontal_right">
+                    <div className="vidhorizontal_title">
+                      <Link link={post.link}>
+                        <SideTitle
+                          dangerouslySetInnerHTML={{
+                            __html: post.title.rendered
+                          }}
+                        />
+                      </Link>
+                    </div>
+                    <div className="vidhorizontal__details">
+                      {/* If the post has an author, we render a clickable author text. */}
+                      {author && (
+                        <Link link={author.link}>
+                          <div>
+                            By <b>{author.name}</b>
+                          </div>
+                        </Link>
+                      )}
+                      <div>
+                        {" "}
+                        on <b>{date.toDateString()}</b>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/*<div>
+                    <div px={2}>
+                      <Link link={post.link}>
+                        <h2>
+                          <Html2React html={post.title.rendered} />
+                        </h2>
+                      </Link>
+                      <Html2React html={post.excerpt.rendered} />
+                    </div>
+                  </div>*/}
+                </SidebarMore>
+              ))}
+              <Link link={category.link}>
+                <p>
+                  &gt;&gt; See more posts at <strong>{category.name}</strong>
+                </p>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </Container>
+    </SingleMainwrapper>
   ) : null;
 };
 
 export default connect(Post);
 
-const Container = styled.div`
-  width: 800px;
+/*  -------------------------------------- */
+
+/* ---------------------------------------- */
+const SingleMainwrapper = styled.div`
+  display: flex;
+  width: 87vw;
+  border-width: 0px;
+  border-color: grey;
+  border-style: solid;
+  align-items: space-around;
+`;
+
+const SidebarMore = styled.div`
+  display: flex;
+  width: 100%;
+  margin-bottom: 7px;
+  border-width: 1px;
+  border-color: #181515;
+  border-style: solid;
+  align-items: space-between;
+`;
+
+const SingleContentsection = styled.div`
+  flex: 0.7;
+  margin-right: 7px;
+  border-width: 0px;
+  border-color: yellow;
+  border-style: dotted;
+`;
+
+const SideTitle = styled.h3`
+  display: flex;
+  width: auto;
   margin: 0;
-  padding: 24px;
+  padding: 0px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #b8e89f;
 `;
 
 const Title = styled.h1`
+  display: flex;
+  width: auto;
   margin: 0;
-  margin-top: 24px;
+  margin-top: 12px;
   margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+  font-size: 19px;
+  color: #b8e89f;
 `;
 
 const StyledLink = styled(Link)`
@@ -88,13 +218,11 @@ const StyledLink = styled(Link)`
 `;
 
 const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
   font-size: 0.9em;
   display: inline;
 `;
 
 const DateWrapper = styled.p`
-  color: rgba(12, 17, 43, 0.9);
   font-size: 0.9em;
   display: inline;
 `;
@@ -104,9 +232,7 @@ const DateWrapper = styled.p`
  * selectors to style that HTML.
  */
 const Content = styled.div`
-  color: rgba(12, 17, 43, 0.8);
   word-break: break-word;
-
   * {
     max-width: 100%;
   }
@@ -132,21 +258,23 @@ const Content = styled.div`
   }
 
   iframe {
-    display: block;
+    height: 60vh;
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 0px;
+    /* display: block;
     margin: auto;
     width: 100%;
-    /* min-height: 500px; */
+    min-height: 500px; */
   }
 
   blockquote {
     margin: 16px 0;
-    background-color: rgba(0, 0, 0, 0.1);
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
   }
 
   a {
-    color: rgb(31, 56, 197);
     text-decoration: underline;
   }
 
@@ -165,18 +293,11 @@ const Content = styled.div`
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 4px;
-    outline-color: transparent;
-    transition: outline-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: outline-divor 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     margin: 8px 0 4px 0;
-
-    &:focus {
-      outline-color: #1f38c5;
-    }
   }
 
   input[type="submit"] {
@@ -195,8 +316,6 @@ const Content = styled.div`
     font-size: 14px;
     line-height: 1.42857143;
     border-radius: 4px;
-    color: #fff;
-    background-color: #1f38c5;
   }
 
   /* WordPress Core Align Classes */

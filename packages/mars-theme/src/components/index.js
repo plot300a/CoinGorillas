@@ -10,7 +10,8 @@ import Title from "./title";
 import PageError from "./page-error";
 import "./Styles.css";
 import Sidebar from "./Sidebar";
-/**
+import Coinwatch from "./coinswatch.js";
+/*
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
@@ -31,7 +32,7 @@ const Theme = ({ state }) => {
         <html lang="en" />
         <meta
           name="google-site-verification"
-          content="pcyiVpBoTlwv0ZqTyh4aKINQGgnMsW9z6srhF9ca1tY"
+          content="qLKKD72w3u4qjzo-h9p1dR8YOHHD7DTjFSEtI4m_A1E"
         />
       </Head>
 
@@ -54,8 +55,17 @@ const Theme = ({ state }) => {
             <Loading when={data.isFetching} />
             <List when={data.isArchive} />
             <Post when={data.isPostType} />
-            <PageError when={data.isError} />
+            <Coinwatch exact path="/coinswatch" />
           </Switch>
+
+          {/*<FlikPhotos /> */}
+          {/*  
+          
+
+          <CoinWatch when={data.isError} />
+          <CoinWatch />
+          <FlikPhotos when={data.isError} />
+          */}
         </div>
       </div>
     </>
@@ -68,7 +78,8 @@ export default connect(Theme);
 const globalStyles = css`
   body {
     margin: 0;
-    background-color: #00c1ff;
+    background-color: #0c0d0c; /*191a19;*/
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -86,8 +97,8 @@ const globalStyles = css`
     position: fixed;
     top: 0;
     z-index: 100;
-    background-color: #00ffef;
-    border: 1px solid pink;
+    background-color: #251f1f;
+    border: 1px solid #191a19;
     clear: both;
 
     .header__menuicon {
@@ -105,8 +116,8 @@ const globalStyles = css`
   .header__input {
     display: flex;
     align-items: center;
-    width: 40%;
-    border: 1px solid lightgrey;
+    width: 30%;
+    border: 0px solid #191a19;
   }
 
   .header__input input {
@@ -121,6 +132,25 @@ const globalStyles = css`
     border: 1px solid lightgrey;
   }
 
+.post__precomment{
+  border-bottom: 1px solid #191a19;
+}
+
+.comment {
+   font-size: 0.9rem;
+   border-bottom: 2px solid #353946;
+   img {
+      width: 50px;
+      height: 50px;
+   }
+   .comment__header {
+      color: #fff;
+   }
+   .comment__body {
+      overflow: hidden;
+   }
+}
+
   .header__icons {
     display: flex;
     align-items: center;
@@ -130,13 +160,79 @@ const globalStyles = css`
     margin-right: 8px;
   }
 
+  .bordersee{
+  border: 1px dotted #191a19;
+}
+
+.vidhzbordersee{
+  border: 2px dotted #fff;
+}
+
   .app_bodySection {
     display: flex;
     position: absolute;
     justify-items: space-between;
     top: 85px;
     border: 0px solid brown;
+    color: #ffffff;
+    justify-content: center;
+
+    a:link {
+      color: #fff;
+    }
   }
+
+.VideoSidebar{
+  display: flex;
+  flex: 0.3;
+  border-width: 0px;
+  border-color: red;
+  border-style: dotted;
+align-items: center;
+}
+
+.sidebarVidntit{
+  width: 100%;
+  padding: 0px;
+  padding-bottom
+}
+
+.sidebarVid{
+  position: relative;
+  margin-right: 5px;  
+  padding: 0px;
+  text-align: center;
+  overflow: hidden;
+  width: 168px;
+  height: 94px;
+  border: 1px;
+
+  img{
+    width: 100%;
+    overflow: hidden;
+    margin-top: -70px;
+    max-height: 200px;
+  }
+}
+
+.vidhorizontal_right{
+  padding: 0px;
+
+.vidhorizontal_title{}
+  .vidhorizontal__details {
+ color: #2d2725;
+ font-size: 12px;
+ padding: 0px;
+ margin-top: 5px;
+ border: 0px solid lime;
+
+ a:link{
+  color: #2d2725;
+ }
+}
+}
+
+
 
   .ytvideo_thumbnailwrapper {
     display: flex;
@@ -148,12 +244,14 @@ const globalStyles = css`
   }
 
   .ytvideo_thumbnailwrapper img {
-    position: relative;
     margin-top: -70px;
   }
 
   .videocard__details {
     font-size: 13px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 0px solid lime;
   }
 
   .borderbox {
@@ -164,6 +262,12 @@ const globalStyles = css`
     width: 100%;
     padding: 0px;
     margin: 0px 0 5px 0;
+  }
+
+  .coinsTokens{
+    display: flex;
+    letter-spacing: 2px;
+    
   }
 
   .postlist_postmeta {
@@ -190,12 +294,11 @@ const globalStyles = css`
   .sidebar {
     display: flex;
     flex-direction: column;
-    background-color: #00e8ff;
-    /*width: 230px; */
+    background-color: #191a19; /*251f1f;*/
     height: 90vh;
     padding-top: 0px;
-    transition: transform 0.2s ease-in;
-    padding-left: 0;
+    padding-left: 5px;
+    padding-right: 5px;
     position: sticky;
     top: 7vh;
     left: 0;
@@ -203,9 +306,9 @@ const globalStyles = css`
     border: 0px solid yellow;
 
     a {
-      color: $text-color;
+      color: #88b888;
       &:hover {
-        color: blue;
+        color: #88b888;
         text-decoration: none;
       }
     }
@@ -240,16 +343,21 @@ const globalStyles = css`
   }
 
   .sidebarRow {
-    background-color: #00aeff;
+    background-color: #191a19;
     display: flex;
     padding: 0px;
-    padding-left: 5px;
 
     align-items: center;
-    color: #6f1884;
-    border-bottom: 1px solid #2bbfff;
+    color: #88b888;
+    border-bottom: 1px solid #262826;
     margin: 0px;
     height: 6vh;
+
+    a:hover {
+      background-color: #88b888;
+      color: #000;
+    }
+
     .sidebarRow__icon {
       width: auto;
       padding: 0px;
@@ -257,7 +365,7 @@ const globalStyles = css`
 
     .sidebarRow__title {
       padding: 0px;
-      font-size: 16px;
+      font-size: 13px;
     }
 
     .sidebarRow__icon {
@@ -272,12 +380,16 @@ const globalStyles = css`
       justify-items: space-between;
       border-width: 3px;
       border-color: blue;
-      border-style: solid;
+      border-style: dotted;
       background-image: linear-gradient(
         180deg,
         rgba(66, 174, 228, 0.1),
         rgba(66, 174, 228, 0)
       );
+    }
+
+    .videoHorizontal{
+      border: 2px solid lime;
     }
   }
 
@@ -291,17 +403,14 @@ const globalStyles = css`
   } */
   /* 1224 */
   @media screen and (max-width: 1366px) {
-    width: 240px;
-    background-color: black;
   }
 
   /* 1224 */
   @media screen and (max-width: 1224px) {
     .sidebar {
-      width: 240px;
-      margin-left: 7px;
+     
       /*border: 1px solid lime; */
-      background-color: #00e8ff;
+
       li {
         justify-content: center;
       }
@@ -329,8 +438,8 @@ const globalStyles = css`
   /* 520 */
   @media screen and (max-width: 520px) {
     .sidebar {
-      transform: translateX(-100%);
-
+      /*transform: translateX(-110%);*/
+      display: none;
       position: fixed;
       z-index: 999;
     }
@@ -347,14 +456,135 @@ const globalStyles = css`
       .header__menuicon {
         display: block;
       }
+
       .header__logo {
         display: none;
       }
-    }
+
+      .header__input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 0px solid #191a19;
+
+    input {
+    flex: 2;
+    border: none;
+    padding-left: 5px;
+    border: 1px solid yellow;
+  }
+  }
+
+
   }
 
   /* xxxxxxxxxxxxxxxxxxxxxx */
   /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx */
+  /* xxxxxxxxxxxxxxxxxxxxxx *
+
+.videoHorizontal {
+   border: 3px solid #fff;
+
+   cursor: pointer;
+
+   .videoHorizontal__left {
+      position: relative;
+      text-align: center;
+      padding-left: 0 !important;
+   }
+
+   .videoHorizontal__thumbnail {
+      width: 100%;
+      
+      .channel {
+         width: 50%;
+         border-radius: 50%;
+      }
+
+      .videoHorizontal__thumbnail-wrapper {
+         width: 100%;
+      }
+   }
+
+   .videoHorizontal__duration {
+      position: absolute;
+
+      bottom: 0.6rem;
+      right: 1.2rem;
+
+      font-size: 0.9rem;
+      padding: 0.2rem;
+      background: #080808ec;
+      border-radius: 3px;
+   }
+
+   &__details {
+      font-size: 0.9rem;
+   }
+
+   &__title {
+      font-size: 0.95rem;
+
+      // color: #fff;
+      letter-spacing: 0.3px;
+
+      @include line-clamp(2);
+   }
+   &__desc {
+      @include line-clamp(2);
+      font-size: 0.9rem;
+   }
+
+   &__channel {
+      img {
+         width: 36px;
+         height: 36px;
+
+         border-radius: 50%;
+         margin-right: 0.5rem;
+         cursor: pointer;
+      }
+      p {
+         font-size: 0.9rem;
+         @include line-clamp(1);
+      }
+   }
+}
+
+@media (max-width: $breakpoint-small) {
+   .videoHorizontal {
+      font-size: 0.8rem;
+
+      &__details {
+         @include line-clamp(1);
+      }
+      &__channel {
+         margin: 0.1rem 0;
+
+         img {
+            display: none;
+         }
+         p {
+            font-size: 0.8rem;
+         }
+      }
+
+      &__desc {
+         display: none;
+      }
+
+      &__title {
+         font-size: 0.9rem;
+         @include line-clamp(1);
+      }
+   }
+}
+
   /* xxxxxxxxxxxxxxxxxxxxxx */
   /* xxxxxxxxxxxxxxxxxxxxxx */
 `;

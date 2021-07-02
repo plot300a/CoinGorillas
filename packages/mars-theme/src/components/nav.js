@@ -36,15 +36,15 @@ const NavContainer = styled.nav`
   margin: 0 0 7px 0;
   overflow-x: auto;
 
-  border-bottom: 1px solid #c8d1d2;
+  border-bottom: 1px solid #191a19;
   @media screen and (max-width: 560px) {
-    display: none;
+   /* display: none; *
   }
 `;
 
 const NavItem = styled.div`
   border-radius: 33px;
-  background: #3fa446; /* #a99b3c; /*#73ad21; /*#327aab;*/
+  background: #3a3e3a; /* #a99b3c; /*#73ad21; /*#327aab;*/
   margin-left: 7px;
   width: auto;
   height: auto;

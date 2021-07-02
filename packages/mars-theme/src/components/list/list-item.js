@@ -60,17 +60,19 @@ const Item = ({ state, item }) => {
 export default connect(Item);
 
 const Title = styled.h1`
-  font-size: 14px;
-  font-weight: bold;
-  color: rgba(12, 17, 43);
+  font-size: 13px;
+  font-weight: normal;
+  color: #a7f7a7;
   margin: 0;
+  padding-left: 3px;
+  padding-right: 3px;
   padding-top: 4px;
   padding-bottom: 8px;
   box-sizing: border-box;
 `;
 
 const AuthorName = styled.span`
-  color: rgba(12, 17, 43, 0.9);
+  color: #ffffff;
   font-size: 0.9em;
 `;
 
@@ -79,11 +81,11 @@ const StyledLink = styled(Link)`
 `;
 
 const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
+  color: #ffffff;
   font-size: 0.9em;
 `;
 
 const Excerpt = styled.div`
   line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
+  color: lime;
 `;

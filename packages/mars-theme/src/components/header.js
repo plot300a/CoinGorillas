@@ -22,7 +22,7 @@ const Header = ({ handleToggleSidebar }) => {
 
         <img
           className="header__logo"
-          src="http://sxm360.thedailygrindsxm.com/wp-content/uploads/2021/04/st_maarten_logo.jpg"
+          src="https://coinwatch.thedailygrindsxm.com/wp-content/uploads/2021/04/44.png"
           alt="sxm360"
         />
       </div>
